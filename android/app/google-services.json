@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "87909995352",
+    "project_id": "drivary-5ff7c",
+    "storage_bucket": "drivary-5ff7c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:87909995352:android:1e4c05e5a7227f232bcb2d",
+        "android_client_info": {
+          "package_name": "com.drivary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "87909995352-qftsrdobl4ouhptpd75en2k710rgjeiv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.drivary",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "87909995352-so560hes4ac9o77li13gcodseqt02vqt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDheqGA-YP--pXLrECNOvX3uzAy3ZOZGHM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "87909995352-so560hes4ac9o77li13gcodseqt02vqt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "87909995352-4bhnnmvfbvfl3l5gogqnad0h0j8fjfv6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.drivary"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
