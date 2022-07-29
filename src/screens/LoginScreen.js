@@ -16,7 +16,24 @@ import { AuthContext } from '../navigation/AuthProvider'
 const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
-  const {login, googleLogin, facebookLogin} = useContext(AuthContext)
+  const [phoneNumber, setPhoneNumber] = useState()
+  const [confirm, setConfirm] = useState(null)
+  const [code, setCode] = useState('')
+  const {login, googleLogin, facebookLogin, phoneLogin} = useContext(AuthContext)
+
+  const confirmCode = async () => {
+    console.log(confirm)
+    try {
+      await confirm.confirm('156779');
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const sendCode = async () => {
+    const confirmation = await phoneLogin(phoneNumber)
+    setConfirm(confirmation)
+  }
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -46,6 +63,18 @@ const LoginScreen = ({navigation}) => {
       <FormButton
         buttonTitle="Sign In"
         onPress={() => login(email, password)}
+      />
+
+      <FormInput
+        labelValue={phoneNumber}
+        onChangeText={(userNumber) => setPhoneNumber(userNumber)}
+        placeholderText="Phone Number"
+        keyboardType='phone-pad'
+      />
+
+      <FormButton
+        buttonTitle={!confirm ? 'Sign In' : 'Confirm Code'}
+        onPress={() => !confirm ? sendCode() : confirmCode() }
       />
 
       <TouchableOpacity style={styles.forgotButton} onPress={() => {}}>

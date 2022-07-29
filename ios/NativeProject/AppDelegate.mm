@@ -1,5 +1,6 @@
 #import "AppDelegate.h"
 
+#import <Firebase.h>
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
@@ -15,8 +16,6 @@
 #import <ReactCommon/RCTTurboModuleManager.h>
 
 #import <react/config/ReactNativeConfig.h>
-
-#import <Firebase.h>
 
 static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 

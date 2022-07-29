@@ -59,6 +59,13 @@ export const AuthProvider = ({children}) => {
                         console.log(error)
                     }
                 },
+                phoneLogin: async (phoneNumber) => {
+                    try {
+                        return await auth().signInWithPhoneNumber(phoneNumber)
+                    }catch(error){
+                        console.log(error)
+                    }
+                },
                 register: async (email, password) => {
                     try{
                         await auth().createUserWithEmailAndPassword(email, password)
