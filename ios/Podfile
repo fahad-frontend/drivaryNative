@@ -12,10 +12,14 @@ target 'NativeProject' do
   # Flags change depending on the env values.
   flags = get_default_flags()
 
-  #     use_frameworks! :linkage => :static
+      use_frameworks! :linkage => :static
   pod 'Firebase', :modular_headers => true
   pod 'FirebaseCore', :modular_headers => true
-  pod 'GoogleUtilities', :modular_headers => true
+  # pod 'GoogleUtilities', :modular_headers => true
+  # pod 'FirebaseStorageInternal', :modular_headers => true
+  # pod 'FirebaseAppCheckInterop', :modular_headers => true
+  # pod 'FirebaseAuthInterop', :modular_headers => true
+  # pod 'FirebaseCoreExtension', :modular_headers => true
   $RNFirebaseAsStaticFramework = true
   # Flags change depending on the env values.
 
@@ -34,6 +38,8 @@ target 'NativeProject' do
     inherit! :complete
     # Pods for testing
   end
+
+  # use_flipper!()
 
   post_install do |installer|
     react_native_post_install(installer)

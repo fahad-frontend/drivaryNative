@@ -1,18 +1,25 @@
 //import liraries
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import AddInfoScreen from '../screens/AddInfoScreen'
+import LearnersLicenseScreen from '../screens/LearnersLicenseScreen'
 import HomeScreen from '../screens/HomeScreen'
 import { createStackNavigator } from '@react-navigation/stack'
+import { AuthContext } from './AuthProvider'
 
 const Stack = createStackNavigator()
 
-// create a component
 const AppStack = () => {
+    const {user} = useContext(AuthContext)
+
     return (
-        <Stack.Navigator>
-            <Stack.Screen name='Home' component={HomeScreen} />
-        </Stack.Navigator>
+        <>
+            {user?.currentStage && <Stack.Navigator initialRouteName={user?.currentStage}>
+                <Stack.Screen name='AddInfo' component={AddInfoScreen} options={{header: () => null}}/>
+                <Stack.Screen name='LearnersLicense' component={LearnersLicenseScreen} options={{header: () => null}}/>
+                <Stack.Screen name='Home' component={HomeScreen} options={{header: () => null}}/>
+            </Stack.Navigator>}
+        </>
     )
 }
 
-//make this component available to the app
-export default AppStack;
+export default AppStack

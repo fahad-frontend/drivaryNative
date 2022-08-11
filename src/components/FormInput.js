@@ -1,16 +1,17 @@
 //import liraries
 import React from 'react'
-import { View, TextInput, StyleSheet } from 'react-native'
+import { View, TextInput, StyleSheet, Text } from 'react-native'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 AntDesign.loadFont().then()
 import { windowHeight } from '../utils/Dimensions'
 
 // create a component
-const FormInput = ({labelValue, placeholderText, iconType, ...rest}) => {
+const FormInput = ({labelValue, placeholderText, iconType, prefix, ...rest}) => {
     return (
         <View style={styles.inputContainer}>
             <View style={styles.iconStyle}>
-                <AntDesign name={iconType} size={25} color='#666' />
+                {iconType && <AntDesign name={iconType} size={25} color='#666' />}
+                {prefix && <Text>+92</Text>} 
             </View>
             <TextInput
                 style={styles.input}

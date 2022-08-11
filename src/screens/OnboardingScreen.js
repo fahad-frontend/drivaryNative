@@ -5,26 +5,40 @@ import Onboarding from 'react-native-onboarding-swiper'
 const OnboardingScreen = ({navigation}) => {
     return (
         <Onboarding
-            onDone={()=> navigation.replace('Login')}
-            onSkip={()=> navigation.navigate('Login')}
+            onDone={()=> navigation.replace('SocialLogin')}
+            onSkip={()=> navigation.navigate('SocialLogin')}
             pages={[
             {
-                backgroundColor: '#a6e4d0',
-                image: <Image source={require('../../assets/onboarding-img1.png')} />,
-                title: 'Onboarding 1',
-                subtitle: 'Done with React Native Onboarding Swiper',
+                backgroundColor: '#FF8C88',
+                image: <Image style={styles.centerImage} source={require('../../assets/onboarding-images/fill-info.png')} />,
+                title: 'Complete Profile',
+                subtitle: 'Provide basic details about yourself, your driving history, as well as contact information.',
+                subTitleStyles: {fontSize: 16, fontWeight: '700'},
+                titleStyles: {fontWeight: '600'}
             },
             {
-                backgroundColor: '#fdeb93',
-                image: <Image source={require('../../assets/onboarding-img2.png')} />,
-                title: 'Onboarding 2',
-                subtitle: 'Done with React Native Onboarding Swiper',
+                backgroundColor: '#FF8C88',
+                image: <Image style={styles.centerImage} source={require('../../assets/onboarding-images/select-date.png')} />,
+                title: 'Select Dates',
+                subtitle: 'Check available slots to book your lessons.',
+                subTitleStyles: {fontSize: 16, fontWeight: '700'},
+                titleStyles: {fontWeight: '600'}
             },
             {
-                backgroundColor: '#e9bcbe',
-                image: <Image source={require('../../assets/onboarding-img3.png')} />,
-                title: 'Onboarding 3',
-                subtitle: 'Done with React Native Onboarding Swiper',
+                backgroundColor: '#FF8C88',
+                image: <Image style={styles.centerImage} source={require('../../assets/onboarding-images/learn-driving.png')} />,
+                title: 'Take Lessons',
+                subtitle: 'Learn driving from our professional trainers who will teach you all you need to know to get on the road.',
+                subTitleStyles: {fontSize: 16, fontWeight: '700'},
+                titleStyles: {fontWeight: '600'}
+            },
+            {
+                backgroundColor: '#FF8C88',
+                image: <Image style={styles.centerImage} source={require('../../assets/onboarding-images/get-license.jpg')} />,
+                title: 'Get you license!',
+                subtitle: "Let us guide you through the entire process of actually getting your driver's license.",
+                subTitleStyles: {fontSize: 16, fontWeight: '700'},
+                titleStyles: {fontWeight: '600'}
             },
             ]}
         />
@@ -34,9 +48,9 @@ const OnboardingScreen = ({navigation}) => {
 export default OnboardingScreen
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
+    centerImage: {
+        width: '100%',
+        height: 300,
+        resizeMode: 'contain',
     }
 })
