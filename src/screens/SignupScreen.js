@@ -91,7 +91,7 @@ export default SignupScreen;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#2e2c2c',
+    backgroundColor: '#FEEBD6',
     flex: 1,
   },
   logoView: {
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     resizeMode: 'stretch'
   },
   text: {
-    color: '#ffffff',
+    color: '#FF8C88',
     fontSize: 25,
     fontWeight: '900',
     fontFamily: 'Lato-Regular',
@@ -128,8 +128,8 @@ const styles = StyleSheet.create({
   navButtonText: {
     marginTop: 20,
     fontSize: 18,
-    fontWeight: '500',
-    color: '#ffffff',
+    fontWeight: '800',
+    color: '#111111',
     fontFamily: 'Lato-Regular',
   },
   textPrivate: {

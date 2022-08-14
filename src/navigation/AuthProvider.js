@@ -137,6 +137,20 @@ export const AuthProvider = ({children}) => {
                         )
                     }
                 },
+                sendPasswordResetEmail: async (email) => {
+                    try{
+                        setLoading(true)
+                        setUser(null)
+                        await auth().sendPasswordResetEmail(email)
+                        setLoading(false)
+                    } catch (error){
+                        setLoading(false)
+                        Alert.alert(
+                            "Error occured",
+                            `${error}`
+                        )
+                    }
+                }
             }}
         >
             {children}

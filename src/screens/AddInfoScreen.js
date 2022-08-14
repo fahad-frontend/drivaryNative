@@ -23,7 +23,7 @@ const AddInfoScreen = ({navigation}) => {
     return (
         <ScrollView style={styles.container}>
             <TouchableOpacity style={styles.logoutButton} onPress={()=> logout()}>
-                <MaterialIcons name='logout' color='#ffffff' size={40} />
+                <MaterialIcons name='logout' color='#111111' size={40} />
             </TouchableOpacity>
             <View style={styles.fillInfo}>
                 <Text style={styles.step}>
@@ -54,8 +54,7 @@ const AddInfoScreen = ({navigation}) => {
                     keyboardType='number-pad'
                 />
                 {error && <Text style={styles.errorText}>Please fill all fields completely.</Text>}
-                {
-                    !otpTimer ? <FormButton
+                {!otpTimer ? <FormButton
                     buttonTitle="Confirm"
                     onPress={async ()=> {
                         if (age && gender && phoneNumber?.length===10){
@@ -80,20 +79,20 @@ const AddInfoScreen = ({navigation}) => {
                     }}
                 /> : <Text>Please wait one minute before sending next OTP.</Text>
                 }
-                    <Modal
-                        animationIn='slideInUp'
-                        animationOut='slideOutDown'
-                        slideOutDown={300}
-                        isVisible={modalVisible}
-                        onBackButtonPress={() => {
-                            setModalVisible(!modalVisible);
-                            setCode()
-                        }}
-                        onBackdropPress	={() => {
-                            setModalVisible(!modalVisible);
-                            setCode()
-                        }}
-                    >
+                <Modal
+                    animationIn='slideInUp'
+                    animationOut='slideOutDown'
+                    slideOutDown={300}
+                    isVisible={modalVisible}
+                    onBackButtonPress={() => {
+                        setModalVisible(!modalVisible);
+                        setCode()
+                    }}
+                    onBackdropPress	={() => {
+                        setModalVisible(!modalVisible);
+                        setCode()
+                    }}
+                >
                     <View style={styles.modalView}>
                         <FormInput
                             labelValue={code}
@@ -111,7 +110,7 @@ const AddInfoScreen = ({navigation}) => {
                                     setModalVisible(false)
                                     setLoading(false)
                                     updateUser({
-                                        uid: user.uid,
+                                        _id: user?.uid || user?._id,
                                         age,
                                         gender,
                                         phoneNumber,
@@ -127,8 +126,7 @@ const AddInfoScreen = ({navigation}) => {
                             }} 
                         />
                     </View>
-                    </Modal>
-
+                </Modal>
             </View>
         </ScrollView>
     )
@@ -138,7 +136,7 @@ const AddInfoScreen = ({navigation}) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#2e2c2c',
+        backgroundColor: '#FEEBD6',
     },
     logoutButton: {
         flex: 1,
@@ -148,12 +146,12 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 25,
-        color: '#ffffff',
+        color: '#FF8C88',
         fontWeight: '900',
         marginBottom: 30
     },
     step: {
-        color: '#ffffff',
+        color: '#FF8C88',
         fontSize: 20,
         marginBottom: 10
     },

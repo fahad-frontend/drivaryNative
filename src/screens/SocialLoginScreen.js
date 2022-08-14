@@ -17,7 +17,7 @@ import ErrorBoundary from 'react-native-error-boundary'
 const SocialLoginScreen = ({navigation}) => {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
-  const {login, googleLogin, facebookLogin} = useContext(AuthContext)
+  const {login, googleLogin, facebookLogin, sendPasswordResetEmail} = useContext(AuthContext)
 
   const loginErrorHandler = () => {
     Alert.alert(
@@ -34,7 +34,7 @@ const SocialLoginScreen = ({navigation}) => {
             source={require('../../assets/logo.png')}
             style={styles.logo}
           />
-          <Text style={styles.welcomeText}>Welcome to the Drivary App</Text>
+          <Text style={styles.welcomeText}>Login to your account</Text>
         </View>
         <View style={styles.loginView}>
           <FormInput
@@ -63,7 +63,7 @@ const SocialLoginScreen = ({navigation}) => {
           />
         </View>
         <View style={styles.navButtonsContainer}>
-          <TouchableOpacity onPress={() => {}}>
+          <TouchableOpacity onPress={() => email ? sendPasswordResetEmail(email) : Alert.alert('Fill in email field and then press again.')}>
             <Text style={styles.navButtonText}>Forgot Password?</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
@@ -98,7 +98,7 @@ export default SocialLoginScreen;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#2e2c2c',
+    backgroundColor: '#FEEBD6',
     flex: 1,
   },  
   logo: {
@@ -109,18 +109,17 @@ const styles = StyleSheet.create({
   navButtonText: {
     fontSize: 15,
     fontWeight: '500',
-    color: '#ffffff',
+    color: '#111111',
     fontFamily: 'Lato-Regular',
     marginTop: 10,
     textAlign: 'center'
   },
   welcomeText: {
-    color: '#ffffff',
+    color: '#FF8C88',
     fontSize: 25,
     fontWeight: '900',
-    fontFamily: 'Lato-Regular',
     textAlign: 'center',
-    marginTop: 20
+    marginTop: 25
   },
   passwordInput: {
     paddingLeft: 10,

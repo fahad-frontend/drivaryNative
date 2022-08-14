@@ -5,7 +5,7 @@ export const addUser = async (newUser)  => {
     if (!existingUser?._data?._id){
         await firestore().collection('Users').doc(newUser.uid).set({
             _id: newUser?.uid,
-            name: newUser?.displayName,
+            displayName: newUser?.displayName,
             email: newUser?.email,
             currentStage: 'AddInfo'
         }, {merge: true})
@@ -13,7 +13,8 @@ export const addUser = async (newUser)  => {
 }
 
 export const updateUser = async (newUser)  => {
-    await firestore().collection('Users').doc(newUser.uid).set({
+    console.log('updated', newUser)
+    await firestore().collection('Users').doc(newUser._id).set({
         ...newUser
     }, {merge: true})
 }

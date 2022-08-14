@@ -13,13 +13,16 @@ const Routes = () => {
 
     const {user, setUser, loading, setLoading} = useContext(AuthContext)
     const [authDone, setAuthDone] = useState(false)
+
+    // console.log(user)
     const onAuthStateChanged = async (authUser) => {
         if (authUser?.uid){
             let updatedUserObject = JSON.parse(JSON.stringify(authUser))
             setAuthDone(true)
             if (updatedUserObject?.uid && !updatedUserObject?.currentStage){
                 const queryResult = await firestore().collection('Users').doc(updatedUserObject?.uid).get()
-                if (queryResult?._data){
+                if (queryResult?._data){ 
+                    // when user signs in using Google or Facebook, we update local user object with document from firebase which has the user's display name as well  
                     updatedUserObject = queryResult?._data
                 }
             }
@@ -31,7 +34,7 @@ const Routes = () => {
 
     useEffect(()=> {
         if(user?.uid && user?.displayName && authDone){
-            addUser(user)
+            addUser(user) // create or update user object in firebase
             setAuthDone(false)
         }
     }, [user])
@@ -48,7 +51,7 @@ const Routes = () => {
     return ( 
         <NavigationContainer>
             <Spinner visible={loading} color='#FF8C88'/>
-            {(user?.uid && user?.displayName) ? <AppStack /> : <AuthStack />}
+            {((user?.uid || user?._id) && user?.displayName) ? <AppStack /> : <AuthStack />}
         </NavigationContainer>
     )
 }

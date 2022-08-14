@@ -1,9 +1,8 @@
 //import liraries
-import React, { useState } from 'react'
-import { NavigationContainer } from '@react-navigation/native'
+import React from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import { View, TouchableOpacity, StyleSheet, Text } from 'react-native'
+import { StyleSheet } from 'react-native'
 import ResourcesScreen from './ResourcesScreen'
 import LessonProgressScreen from './LessonProgressScreen'
 
@@ -23,8 +22,6 @@ const HomeScreen = () => {
                         iconName = focused ? 'home' : 'home-outline'
                     } else if (route.name === 'Resources') {
                         iconName = focused ? 'reader' : 'reader-outline'
-                    } else if (route.name === 'Profile') {
-                        iconName = focused ? 'person' : 'person-outline'
                     }
                     return <Ionicons name={iconName} size={20} color='#ffffff' />;
                 },

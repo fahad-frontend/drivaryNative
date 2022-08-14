@@ -1,6 +1,6 @@
 //import liraries
-import React, { useContext, useEffect, useState } from 'react'
-import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Alert, Image, Platform } from 'react-native'
+import React, { useContext, useState } from 'react'
+import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Image, Platform } from 'react-native'
 import Modal from "react-native-modal"
 import {AuthContext} from '../navigation/AuthProvider'
 import ImagePicker from 'react-native-image-crop-picker'
@@ -61,11 +61,11 @@ const LearnersLicenseScreen = ({navigation}) => {
             setUploadResult('success')
             const downloadUrl = await storageRef.getDownloadURL()
             updateUser({
-                uid: user?._id || user?.uid,
+                _id: user?._id || user?.uid,
                 learnersDate: day?.timestamp,
                 learnersSlot: slot,
                 learnersPaymentImage: downloadUrl,
-                currentStage: 'Lessons'
+                currentStage: 'Home'
             })
         } catch (error){
             console.log(error)
@@ -78,7 +78,7 @@ const LearnersLicenseScreen = ({navigation}) => {
     return (
         <ScrollView style={styles.container}>
             <TouchableOpacity style={styles.logoutButton} onPress={()=> logout()}>
-                <MaterialIcons name='logout' color='#ffffff' size={40} />
+                <MaterialIcons name='logout' color='#111111' size={40} />
             </TouchableOpacity>
             <View style={styles.fillInfo}>
                 <Text style={styles.step}>
@@ -203,7 +203,7 @@ const LearnersLicenseScreen = ({navigation}) => {
                         <Text style={styles.uploadingText}>Uploading... {transferred}%</Text>
                         {uploadResult==='success' && <Text style={styles.successUploadText}>Information updated succesfully!</Text>}
                         {uploadResult==='failure' && <Text style={styles.failureUploadText}>Error updating information.</Text>}
-                        {uploadResult && <FormButton buttonTitle={uploadResult==='success' ? 'Continue' : 'Try again'} onPress={uploadResult==='success' ? ()=>navigation.replace('Lessons') : ()=> {setProceedModalVisible(false); setUploadResult('')}} />}
+                        {uploadResult && <FormButton buttonTitle={uploadResult==='success' ? 'Continue' : 'Try again'} onPress={uploadResult==='success' ? ()=>navigation.replace('Home') : ()=> {setProceedModalVisible(false); setUploadResult('')}} />}
                     </View>
                 </Modal>
             </View>
@@ -215,7 +215,7 @@ const LearnersLicenseScreen = ({navigation}) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#2e2c2c',
+        backgroundColor: '#FEEBD6',
     },
     logoutButton: {
         flex: 1,
@@ -225,12 +225,12 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 25,
-        color: '#ffffff',
+        color: '#FF8C88',
         fontWeight: '900',
         marginBottom: 30
     },
     step: {
-        color: '#ffffff',
+        color: '#FF8C88',
         fontSize: 20,
         marginBottom: 10
     },
@@ -278,7 +278,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     mediumText: {
-        color: '#FF8C88',
+        color: '#111111',
         fontSize: 20,
         fontWeight: '600',
         marginBottom: 10

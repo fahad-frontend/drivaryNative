@@ -12,6 +12,7 @@ const AuthStackNavigator = createStackNavigator()
 
 const AuthStack = () => {
     const [initialRouteName, setInitialRouteName] = useState(null)
+
     useEffect(()=> {
         AsyncStorage.getItem('alreadyLaunched').then(val=> {
             if (val===null){
@@ -33,7 +34,7 @@ const AuthStack = () => {
                 options={({navigation}) => ({
                     title: '',
                     headerStyle: {
-                        backgroundColor: '#2e2c2c',
+                        backgroundColor: '#FEEBD6',
                         elevation: 0,
                     },
                     headerLeft: () => (
@@ -41,8 +42,8 @@ const AuthStack = () => {
                             <FontAwesome.Button 
                                 name="long-arrow-left"
                                 size={35}
-                                backgroundColor="#2e2c2c"
-                                color="#ffffff"
+                                backgroundColor="#FEEBD6"
+                                color="#FF8C88"
                                 onPress={() => navigation.navigate('SocialLogin')}
                             />
                         </View>

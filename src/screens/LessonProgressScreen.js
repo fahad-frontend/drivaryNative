@@ -15,9 +15,10 @@ import Accordion from 'react-native-collapsible/Accordion'
 import { lessonsData } from '../utils/Enums'
 import { AuthContext } from '../navigation/AuthProvider'
 import { updateUser } from '../utils/Functions'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 const LessonsProgressScreen = () => {
-    const { user, setUser } = useContext(AuthContext)
+    const { user, setUser, logout } = useContext(AuthContext)
     const [activeSections, setActiveSections] = useState([])
     const [modalVisible, setModalVisible] = useState(false)
     const [multipleSelect] = useState(true)
@@ -53,7 +54,7 @@ const LessonsProgressScreen = () => {
 
     const addLessonRating = () => {
         updateUser({
-            uid: user?.uid,
+            _id: user?.uid || user?._id,
             lessons: 
                 {
                     [currentLesson?.key]: {
@@ -99,7 +100,7 @@ const LessonsProgressScreen = () => {
                 marginTop: 10
             }}>
                 <Text style={{ color:'#525150', fontSize: 15, fontWeight: '600'}}>Your Rating:</Text>             
-                <TouchableOpacity onPress={()=> setModalVisible(true)}>
+                <TouchableOpacity onPress={()=> !user?.lessons?.[section?.key]?.userRating && setModalVisible(true)}>
                     <Text style={{color: 'yellow', fontSize: 15, marginLeft: 5}}>
                         {user?.lessons?.[section?.key]?.userRating?.total || `Give Rating`}
                     </Text>
@@ -123,6 +124,9 @@ const LessonsProgressScreen = () => {
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <View style={styles.container}>
+                <TouchableOpacity style={styles.logoutButton} onPress={()=> logout()}>
+                    <MaterialIcons name='logout' color='#111111' size={40} />
+                </TouchableOpacity>
                 <ScrollView>
                     <View style={styles.accordionView}>
                         <Accordion
@@ -197,7 +201,7 @@ export default LessonsProgressScreen
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#ffffff',
+        backgroundColor: '#FEEBD6',
     },
     title: {
         textAlign: 'center',
@@ -218,7 +222,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#FF8C88',
     },
     inactive: {
-        backgroundColor: '#ffffff',
+        backgroundColor: '#FEEBD6',
     },
     selectors: {
         marginBottom: 10,
@@ -273,5 +277,11 @@ const styles = StyleSheet.create({
     },
     disabledLesson: {
         backgroundColor: '#9fa0a1'
-    }
+    },
+    logoutButton: {
+        alignItems: 'flex-end',
+        marginRight: 20,
+        marginTop: 20,
+        marginBottom: 20,
+    },
 })

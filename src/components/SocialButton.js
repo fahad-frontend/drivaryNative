@@ -34,9 +34,6 @@ const styles = StyleSheet.create({
         padding: 10,
         flexDirection: 'row',
         borderRadius: 10,
-        borderStyle: 'solid',
-        borderWidth: 3,
-        borderColor: '#ffffff'
     },
     iconWrapper: {
         marginLeft: 30,
