@@ -1,10 +1,10 @@
-#Drivary App
+# Drivary App
 
 Cross-platform app made for a driving school with social login that allows users to create their account, submit personal information, schedule driving lessons, rate their performance and get personalised feedback with resources.
 
 Made using React Native CLI, Firebase (Authentication using email, Google, Facebook, and phone number - Database with Firestore, Cloud Storage). Shared state management with React Context, Animations with React-Native-Animatable, icons with RN-Vector-Icons, and native styling.
 
-##Screenshots:
+## Screenshots:
 
 <img width="330" alt="Screenshot 2022-08-19 at 3 40 38 AM" src="https://user-images.githubusercontent.com/109870722/185507776-a59a5bed-500c-4017-933e-c309525dd16a.png">
 
