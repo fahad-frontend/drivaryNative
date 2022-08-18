@@ -1,16 +1,16 @@
-Drivary App
+#Drivary App
 
 Cross-platform app made for a driving school with social login that allows users to create their account, submit personal information, schedule driving lessons, rate their performance and get personalised feedback with resources.
 
 Made using React Native CLI, Firebase (Authentication using email, Google, Facebook, and phone number - Database with Firestore, Cloud Storage). Shared state management with React Context, Animations with React-Native-Animatable, icons with RN-Vector-Icons, and native styling.
 
-Screenshots:
+##Screenshots:
 
-<img width="296" alt="Screenshot 2022-08-14 at 9 15 33 PM" src="https://user-images.githubusercontent.com/109870722/184546103-88d82f27-253d-4538-b000-fd585b983a8d.png">
+<img width="330" alt="Screenshot 2022-08-19 at 3 40 38 AM" src="https://user-images.githubusercontent.com/109870722/185507776-a59a5bed-500c-4017-933e-c309525dd16a.png">
 
 <img width="298" alt="Screenshot 2022-08-14 at 9 17 20 PM" src="https://user-images.githubusercontent.com/109870722/184546115-b686c906-d787-4e40-a764-5a2535a543c5.png">
 
-<img width="296" alt="Screenshot 2022-08-14 at 9 17 44 PM" src="https://user-images.githubusercontent.com/109870722/184546121-a0800807-b9a9-4092-8563-87c70838bc67.png">
+<img width="327" alt="Screenshot 2022-08-19 at 3 41 24 AM" src="https://user-images.githubusercontent.com/109870722/185507851-ae9e0db7-f78d-4806-ab0b-245fc9c9a2ba.png">
 
 <img width="296" alt="Screenshot 2022-08-14 at 9 20 01 PM" src="https://user-images.githubusercontent.com/109870722/184546123-d506387a-143b-43aa-b3c3-1f3b34a3e617.png">
 
